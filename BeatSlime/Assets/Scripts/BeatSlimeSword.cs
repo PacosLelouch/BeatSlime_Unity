@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
+public class BeatSlimeSwordSettings
+{
+    public float perfectScore = 100.0f;
+}
+
 //-------------------------------------------------------------------------
 [RequireComponent(typeof(Interactable))]
 public class BeatSlimeSword : MonoBehaviour
 {
+    public BeatSlimeSwordSettings settings = new BeatSlimeSwordSettings();
+
     private Vector3 oldPosition;
     private Quaternion oldRotation;
 
@@ -17,6 +24,7 @@ public class BeatSlimeSword : MonoBehaviour
     private Interactable interactable;
     private bool lastHovering = false;
 
+    private BeatSlimePlayer owningPlayer = null;
     //-------------------------------------------------
     void Awake()
     {
@@ -38,6 +46,17 @@ public class BeatSlimeSword : MonoBehaviour
         }
     }
 
+    #region State.
+    // Can damage slime only when it is attached to hand. 
+    public bool CanDamage
+    {
+        get
+        {
+            return interactable.attachedToHand != null;
+        }
+    }
+    #endregion
+
     #region Interactable.
     //-------------------------------------------------
     // Called every Update() while a Hand is hovering over this object
@@ -46,6 +65,8 @@ public class BeatSlimeSword : MonoBehaviour
     {
         GrabTypes startingGrabType = hand.GetGrabStarting();
         bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
+
+        BeatSlimePlayer playerScript = hand.transform.root.GetComponent<BeatSlimePlayer>();
 
         if (interactable.attachedToHand == null && startingGrabType != GrabTypes.None)
         {
@@ -59,9 +80,14 @@ public class BeatSlimeSword : MonoBehaviour
 
             // Attach this object to the hand
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
+
+            owningPlayer = playerScript;
+
         }
         else if (isGrabEnding)
         {
+            owningPlayer = null;
+
             // Detach this object from the hand
             hand.DetachObject(gameObject);
 
@@ -78,7 +104,14 @@ public class BeatSlimeSword : MonoBehaviour
     #region Collision & trigger.
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Collider other = collision.collider;
+        if (other != null && other.CompareTag("Slime"))
+        {
+            if (owningPlayer != null && CanDamage)
+            {
+                // TODO: Player add score. Slime get hurt.
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
