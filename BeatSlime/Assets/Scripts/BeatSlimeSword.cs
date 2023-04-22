@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class BeatSlimeSwordSettings
+public class BeatSlimeSwordData
 {
     public float perfectScore = 100.0f;
 }
@@ -12,7 +12,7 @@ public class BeatSlimeSwordSettings
 [RequireComponent(typeof(Interactable))]
 public class BeatSlimeSword : MonoBehaviour
 {
-    public BeatSlimeSwordSettings settings = new BeatSlimeSwordSettings();
+    public BeatSlimeSwordData data = new BeatSlimeSwordData();
 
     private Vector3 oldPosition;
     private Quaternion oldRotation;

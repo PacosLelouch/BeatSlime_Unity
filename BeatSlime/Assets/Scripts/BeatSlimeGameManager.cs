@@ -20,4 +20,9 @@ public class BeatSlimeGameManager : MonoBehaviour
     {
         
     }
+
+    public void GameOver(bool isSongEnd = false)
+    {
+
+    }
 }
