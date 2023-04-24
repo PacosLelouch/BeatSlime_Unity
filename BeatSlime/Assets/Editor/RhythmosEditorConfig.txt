@@ -1,0 +1,4 @@
+RhythmosEditor - Configuration
+
+LastRhythmosDatabaseFile: none
+MetronomeSound: none
