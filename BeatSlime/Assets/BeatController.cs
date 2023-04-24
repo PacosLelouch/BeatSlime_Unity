@@ -45,20 +45,23 @@ public class BeatController : MonoBehaviour
 
     void Update()
     {
-        float time = audioSource.time + timeOffset;
-        Rigidbody slimeRigidBody = slimeObject.GetComponent<Rigidbody>();
-        if (time >= nextBeatTime)
+        if (audioSource.isPlaying)
         {
-            slimeRigidBody.velocity = new Vector3(0f, jumpHeight, 0f);
-            lastBeatTime = nextBeatTime;
-            nextBeatTime += beatDuration;
-        }
-        Vector3 playerDirection2D = playerObject.transform.position - slimeObject.transform.position;
-        playerDirection2D.y = 0.0f;
-        playerDirection2D.Normalize();
+            float time = audioSource.time + timeOffset;
+            Rigidbody slimeRigidBody = slimeObject.GetComponent<Rigidbody>();
+            if (time >= nextBeatTime)
+            {
+                slimeRigidBody.velocity = new Vector3(0f, jumpHeight, 0f);
+                lastBeatTime = nextBeatTime;
+                nextBeatTime += beatDuration;
+            }
+            Vector3 playerDirection2D = playerObject.transform.position - slimeObject.transform.position;
+            playerDirection2D.y = 0.0f;
+            playerDirection2D.Normalize();
 
-        slimeRigidBody.MoveRotation(Quaternion.LookRotation(playerDirection2D));
-        slimeRigidBody.velocity += playerDirection2D * 0.01f;
+            slimeRigidBody.MoveRotation(Quaternion.LookRotation(playerDirection2D));
+            slimeRigidBody.velocity += playerDirection2D * 0.05f;
+        }
     }
 
     public float AudioTime
@@ -90,8 +93,14 @@ public class BeatController : MonoBehaviour
         }
     }
 
+    public void StopPlaying()
+    {
+        audioSource.time = 0.0f;
+        audioSource.Stop();
+    }
     public void StartPlaying()
     {
+        audioSource.time = 0.0f;
         audioSource.Play();
     }
 }

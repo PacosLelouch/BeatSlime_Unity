@@ -18,6 +18,8 @@ public class BeatSlimeSwordData
 [RequireComponent(typeof(Interactable))]
 public class BeatSlimeSword : MonoBehaviour
 {
+    public GameObject swordObject = null;
+
     public BeatSlimeSwordData data = new BeatSlimeSwordData();
 
     private Vector3 oldPosition;
@@ -30,6 +32,7 @@ public class BeatSlimeSword : MonoBehaviour
     private Interactable interactable;
     private bool lastHovering = false;
 
+    private BeatSlimeGameManager gameManager = null;
     private BeatSlimePlayer owningPlayer = null;
     private BeatController beatController = null;
     //-------------------------------------------------
@@ -42,6 +45,7 @@ public class BeatSlimeSword : MonoBehaviour
     void Start()
     {
         beatController = BeatController.GetBeatControllerInScene();
+        gameManager = BeatSlimeGameManager.GetGameManagerInScene();
     }
 
     // Update is called once per frame
@@ -89,10 +93,14 @@ public class BeatSlimeSword : MonoBehaviour
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
 
             owningPlayer = playerScript;
+            swordObject.GetComponent<BoxCollider>().enabled = true;
+
+            gameManager.StartGame();
 
         }
         else if (isGrabEnding)
         {
+            swordObject.GetComponent<BoxCollider>().enabled = false;
             owningPlayer = null;
 
             // Detach this object from the hand

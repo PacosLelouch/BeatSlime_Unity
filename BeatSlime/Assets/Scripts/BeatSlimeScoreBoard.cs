@@ -8,12 +8,15 @@ public class BeatSlimeScoreBoard : MonoBehaviour
     public Text textScore;
     public Text textCombo;
     public Text textLife;
+    public Text textGameState;
     private BeatSlimePlayer player;
+    private BeatSlimeGameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         player = BeatSlimePlayer.GetPlayerInScene();
+        gameManager = BeatSlimeGameManager.GetGameManagerInScene();
     }
 
     // Update is called once per frame
@@ -30,6 +33,21 @@ public class BeatSlimeScoreBoard : MonoBehaviour
         if (textLife != null && player != null && player.data != null)
         {
             textLife.text = "Life: " + player.data.life.ToString() + "/" + player.data.maxLife.ToString();
+        }
+        if (textGameState != null && player != null && player.data != null)
+        {
+            switch (gameManager.gameState)
+            {
+                case GameState.GameOver_Lose:
+                    textGameState.text = "LOSE";
+                    break;
+                case GameState.GameOver_Win:
+                    textGameState.text = "WIN";
+                    break;
+                default:
+                    textGameState.text = "";
+                    break;
+            }
         }
     }
 }

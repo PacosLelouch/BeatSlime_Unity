@@ -38,20 +38,25 @@ public class BeatSlimePlayer : MonoBehaviour
         
     }
 
+    public bool GetHurt()
+    {
+        if (data.life > 0.0f)
+        {
+            data.life -= 5.0f;
+        }
+        if (data.life <= 0.0f)
+        {
+            gameManager.GameOver(false);
+        }
+        return true;
+    }
+
     #region Collision & Trigger
     private void OnCollisionEnter(Collision collision)
     {
         Collider other = collision.collider;
         if (other != null && other.CompareTag("Slime"))
         {
-            if (data.life > 0.0f)
-            {
-                data.life -= 5.0f;
-            }
-            if (data.life <= 0.0f)
-            {
-                gameManager.GameOver(false);
-            }
         }
     }
 
