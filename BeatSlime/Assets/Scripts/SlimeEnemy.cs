@@ -15,7 +15,10 @@ public class SlimeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BeatController beatController = BeatController.GetBeatControllerInScene();
+        float hitTime = beatController.AudioTime;
+        BeatQuality quality = beatController.GetHitQuality(hitTime);
+        // TODO: Visualize quality...
     }
 
     #region Collision & Trigger.
@@ -34,6 +37,11 @@ public class SlimeEnemy : MonoBehaviour
                 collidedRoot.GetComponent<BeatSlimePlayer>().GetHurt();
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
     #endregion
 }

@@ -29,6 +29,8 @@ public class BeatSlimeSword : MonoBehaviour
 
     private Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers) & (~Hand.AttachmentFlags.VelocityMovement);
 
+    private Hand playerHand;
+
     private Interactable interactable;
     private bool lastHovering = false;
 
@@ -74,6 +76,7 @@ public class BeatSlimeSword : MonoBehaviour
     //-------------------------------------------------
     private void HandHoverUpdate(Hand hand)
     {
+        playerHand = hand;
         GrabTypes startingGrabType = hand.GetGrabStarting();
         bool isGrabEnding = hand.IsGrabEnding(this.gameObject);
 
@@ -120,7 +123,7 @@ public class BeatSlimeSword : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Collider other = collision.collider;
-        if (other != null && other.CompareTag("Slime"))
+        /*if (other != null && other.CompareTag("Slime"))
         {
             if (owningPlayer != null && CanDamage)
             {
@@ -140,12 +143,38 @@ public class BeatSlimeSword : MonoBehaviour
                     ++owningPlayer.data.combo;
                 }
             }
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other != null && other.CompareTag("Slime"))
+        {
+            if (owningPlayer != null && CanDamage)
+            {
+                float hitTime = beatController.AudioTime;
+                BeatQuality quality = beatController.GetHitQuality(hitTime);
+
+                //float ratio = (float)quality / (float)BeatQuality.Excellent;
+                //if (ratio > 0)
+                //{
+                //    owningPlayer.data.score += data.perfectScore * ratio;
+                //}
+                float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                owningPlayer.data.score += addScore;
+
+                if (quality >= BeatQuality.Good)
+                {
+                    ++owningPlayer.data.combo;
+
+                    //haptic feedback when the player has a good hit
+                    if (playerHand!= null)
+                    {
+                        playerHand.TriggerHapticPulse((ushort)0.5);
+                    }
+                }
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
