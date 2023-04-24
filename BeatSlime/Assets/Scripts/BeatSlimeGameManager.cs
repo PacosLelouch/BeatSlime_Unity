@@ -6,7 +6,12 @@ public class BeatSlimeGameManager : MonoBehaviour
 {
     static public BeatSlimeGameManager GetGameManagerInScene(string name = "BeatSlimeGameManager")
     {
-        return GameObject.Find(name).GetComponent<BeatSlimeGameManager>();
+        GameObject go = GameObject.Find(name);
+        if (go != null)
+        {
+            return go.GetComponent<BeatSlimeGameManager>();
+        }
+        return null;
     }
 
     // Start is called before the first frame update

@@ -5,7 +5,13 @@ using Valve.VR.InteractionSystem;
 
 public class BeatSlimeSwordData
 {
-    public float perfectScore = 100.0f;
+    public readonly Dictionary<BeatQuality, float> scoreDict = new Dictionary<BeatQuality, float>
+    {
+        { BeatQuality.Miss, -50.0f },
+        { BeatQuality.Poor, 0.0f },
+        { BeatQuality.Good, 50.0f },
+        { BeatQuality.Excellent, 100.0f }
+    };
 }
 
 //-------------------------------------------------------------------------
@@ -25,6 +31,7 @@ public class BeatSlimeSword : MonoBehaviour
     private bool lastHovering = false;
 
     private BeatSlimePlayer owningPlayer = null;
+    private BeatController beatController = null;
     //-------------------------------------------------
     void Awake()
     {
@@ -34,7 +41,7 @@ public class BeatSlimeSword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        beatController = BeatController.GetBeatControllerInScene();
     }
 
     // Update is called once per frame
@@ -109,7 +116,21 @@ public class BeatSlimeSword : MonoBehaviour
         {
             if (owningPlayer != null && CanDamage)
             {
-                // TODO: Player add score. Slime get hurt.
+                float hitTime = beatController.AudioTime;
+                BeatQuality quality = beatController.GetHitQuality(hitTime);
+
+                //float ratio = (float)quality / (float)BeatQuality.Excellent;
+                //if (ratio > 0)
+                //{
+                //    owningPlayer.data.score += data.perfectScore * ratio;
+                //}
+                float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                owningPlayer.data.score += addScore;
+
+                if (quality >= BeatQuality.Good)
+                {
+                    ++owningPlayer.data.combo;
+                }
             }
         }
     }
