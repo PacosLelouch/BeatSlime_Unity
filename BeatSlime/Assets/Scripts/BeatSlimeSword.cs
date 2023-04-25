@@ -19,8 +19,13 @@ public class BeatSlimeSwordData
 public class BeatSlimeSword : MonoBehaviour
 {
     public GameObject swordObject = null;
+    public GameObject windObject = null;
+    public GameObject swordPeekObject = null;
 
     public BeatSlimeSwordData data = new BeatSlimeSwordData();
+
+    [SerializeField]
+    private Vector3 swordPeekVelocity;
 
     private Vector3 oldPosition;
     private Quaternion oldRotation;
@@ -56,6 +61,24 @@ public class BeatSlimeSword : MonoBehaviour
         if (interactable.isHovering != lastHovering) //save on the .tostrings a bit
         {
             lastHovering = interactable.isHovering;
+        }
+
+        // Should we add a constraint that it should be some velocity to apply damage?
+        //Rigidbody swordRigidBody = GetComponent<Rigidbody>();
+        BoxCollider swordCollider = swordObject.GetComponent<BoxCollider>();
+        swordPeekVelocity = swordPeekObject.GetComponent<VelocityEstimator>().GetVelocityEstimate();
+            //swordRigidBody.GetPointVelocity(swordPeekObject.transform.position);
+        bool isSwordMoving = swordPeekVelocity.magnitude > 0.25f;
+        // Use branch for breakpoint.
+        if (isSwordMoving)
+        {
+            swordCollider.enabled = isSwordMoving;
+            windObject.SetActive(isSwordMoving);
+        }
+        else
+        {
+            swordCollider.enabled = isSwordMoving;
+            windObject.SetActive(isSwordMoving);
         }
     }
 
@@ -96,14 +119,14 @@ public class BeatSlimeSword : MonoBehaviour
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
 
             owningPlayer = playerScript;
-            swordObject.GetComponent<BoxCollider>().enabled = true;
+            //swordObject.GetComponent<BoxCollider>().enabled = true;
 
             gameManager.StartGame();
 
         }
         else if (isGrabEnding)
         {
-            swordObject.GetComponent<BoxCollider>().enabled = false;
+            //swordObject.GetComponent<BoxCollider>().enabled = false;
             owningPlayer = null;
 
             // Detach this object from the hand
@@ -123,58 +146,42 @@ public class BeatSlimeSword : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Collider other = collision.collider;
-        /*if (other != null && other.CompareTag("Slime"))
-        {
-            if (owningPlayer != null && CanDamage)
-            {
-                float hitTime = beatController.AudioTime;
-                BeatQuality quality = beatController.GetHitQuality(hitTime);
-
-                //float ratio = (float)quality / (float)BeatQuality.Excellent;
-                //if (ratio > 0)
-                //{
-                //    owningPlayer.data.score += data.perfectScore * ratio;
-                //}
-                float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
-                owningPlayer.data.score += addScore;
-
-                if (quality >= BeatQuality.Good)
-                {
-                    ++owningPlayer.data.combo;
-                }
-            }
-        }*/
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
         if (other != null && other.CompareTag("Slime"))
         {
             if (owningPlayer != null && CanDamage)
             {
-                float hitTime = beatController.AudioTime;
-                BeatQuality quality = beatController.GetHitQuality(hitTime);
+                Rigidbody slimeRigidBody = other.GetComponent<Rigidbody>();
+                Rigidbody swordRigidBody = GetComponent<Rigidbody>();
+                
+                // Add extra force?
+                Vector3 swordPeekVelocity2D = new Vector3(swordPeekVelocity.x, 0.0f, swordPeekVelocity.z);
+                slimeRigidBody.AddForce(swordPeekVelocity2D * 0.1f, ForceMode.VelocityChange);
 
-                //float ratio = (float)quality / (float)BeatQuality.Excellent;
-                //if (ratio > 0)
-                //{
-                //    owningPlayer.data.score += data.perfectScore * ratio;
-                //}
-                float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
-                owningPlayer.data.score += addScore;
-
-                if (quality >= BeatQuality.Good)
                 {
-                    ++owningPlayer.data.combo;
+                    float hitTime = beatController.AudioTime;
+                    BeatQuality quality = beatController.GetHitQuality(hitTime);
 
-                    //haptic feedback when the player has a good hit
-                    if (playerHand!= null)
+                    float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                    owningPlayer.data.score += addScore;
+
+                    if (quality >= BeatQuality.Good)
                     {
-                        playerHand.TriggerHapticPulse((ushort)0.5);
+                        ++owningPlayer.data.combo;
+
+                        //haptic feedback when the player has a good hit
+                        if (playerHand != null && playerHand.hapticAction.active)
+                        {
+                            playerHand.TriggerHapticPulse((ushort)0.5);
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     private void OnCollisionExit(Collision collision)
