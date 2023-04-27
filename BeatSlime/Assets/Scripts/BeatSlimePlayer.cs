@@ -8,6 +8,13 @@ public class BeatSlimePlayerData
     public float life = 100.0f;
     public float score = 0.0f;
     public int combo = 0;
+
+    public void Reset()
+    {
+        combo = 0;
+        score = 0.0f;
+        life = maxLife;
+    }
 }
 
 public class BeatSlimePlayer : MonoBehaviour
@@ -38,17 +45,34 @@ public class BeatSlimePlayer : MonoBehaviour
         
     }
 
-    public bool GetHurt()
+    public bool RestoreLife(float value = 1.0f)
     {
-        if (data.life > 0.0f)
+        if (gameManager.IsPlaying)
         {
-            data.life -= 5.0f;
+            if (data.life < data.maxLife)
+            {
+                data.life = Mathf.Min(data.life + value, data.maxLife);
+                return true;
+            }
         }
-        if (data.life <= 0.0f)
+        return false;
+    }
+
+    public bool GetHurt(float value = 5.0f)
+    {
+        if (gameManager.IsPlaying)
         {
-            gameManager.GameOver(false);
+            if (data.life > 0.0f)
+            {
+                data.life = Mathf.Max(0.0f, data.life - value);
+            }
+            if (data.life <= 0.0f)
+            {
+                gameManager.GameOver(false);
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     #region Collision & Trigger

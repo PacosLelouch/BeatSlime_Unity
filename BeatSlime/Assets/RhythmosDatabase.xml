@@ -1,5 +1,58 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <RhythmosDatabase>
-  <NoteList />
-  <RhythmList />
+  <NoteList>
+    <NoteEntry>
+      <name>Beat</name>
+      <color>RGBA(0.386, 0.533, 0.548, 1.000)</color>
+      <audioclip>0</audioclip>
+    </NoteEntry>
+  </NoteList>
+  <RhythmList>
+    <RhythmEntry>
+      <name>BeatSlime</name>
+      <bpm>87.5</bpm>
+      <RhythmSequence>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+      </RhythmSequence>
+    </RhythmEntry>
+  </RhythmList>
 </RhythmosDatabase>

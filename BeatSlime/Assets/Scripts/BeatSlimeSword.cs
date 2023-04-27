@@ -18,8 +18,10 @@ public class BeatSlimeSwordData
 [RequireComponent(typeof(Interactable))]
 public class BeatSlimeSword : MonoBehaviour
 {
+    //public Dictionary<BeatQuality, AudioClip> swordHitSoundEffects;
     public AudioClip swordHitSoundEffect_Poor = null;
     public AudioClip swordHitSoundEffect_Good = null;
+    public AudioClip swordHitSoundEffect_Excellent = null;
     public GameObject swordObject = null;
     public GameObject windObject = null;
     public GameObject swordPeekObject = null;
@@ -107,7 +109,7 @@ public class BeatSlimeSword : MonoBehaviour
     {
         get
         {
-            return swordPeekVelocity.magnitude > 0.25f;
+            return swordPeekVelocity.magnitude > 1.0f;
         }
     }
     #endregion
@@ -198,27 +200,47 @@ public class BeatSlimeSword : MonoBehaviour
                     float hitTime = beatController.AudioTime;
                     BeatQuality quality = beatController.GetHitQuality(hitTime);
 
-                    float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
-                    owningPlayer.data.score += addScore;
-
+                    if (gameManager.IsPlaying)
+                    {
+                        float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                        owningPlayer.data.score += addScore;
+                    }
 
                     if (quality >= BeatQuality.Good)
                     {
-                        ++owningPlayer.data.combo;
+                        if (gameManager.IsPlaying)
+                        {
+                            ++owningPlayer.data.combo;
+                        }
+
+                        if (quality >= BeatQuality.Excellent)
+                        {
+                            owningPlayer.RestoreLife();
+                            if (swordHitSoundEffect_Excellent != null)
+                            {
+                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Excellent, swordObject.transform.position, 0.25f);
+                            }
+                        }
+                        else
+                        {
+                            if (swordHitSoundEffect_Good != null)
+                            {
+                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Good, swordObject.transform.position, 0.25f);
+                            }
+                        }
 
                         //haptic feedback when the player has a good hit
                         if (playerHand != null && playerHand.hapticAction.active)
                         {
                             playerHand.TriggerHapticPulse((ushort)0.5);
                         }
-
-                        if (swordHitSoundEffect_Good != null)
-                        {
-                            AudioSource.PlayClipAtPoint(swordHitSoundEffect_Good, swordObject.transform.position, 0.25f);
-                        }
                     }
                     else
                     {
+                        if (gameManager.IsPlaying)
+                        {
+                            owningPlayer.data.combo = 0;
+                        }
                         if (swordHitSoundEffect_Poor != null)
                         {
                             AudioSource.PlayClipAtPoint(swordHitSoundEffect_Poor, swordObject.transform.position, 0.25f);

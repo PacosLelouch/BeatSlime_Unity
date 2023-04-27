@@ -101,7 +101,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
@@ -160,7 +160,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012660339372}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783750eec4c41da428b7651515146d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityAverageFrames: 5
-  angularVelocityAverageFrames: 11
-  estimateOnAwake: 0
+  velocityAverageFrames: 3
+  angularVelocityAverageFrames: 5
+  estimateOnAwake: 1
 --- !u!114 &114000012872173436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,13 +337,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05541957dfaa7d40b74e45fdf173b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordHitSoundEffect_Poor: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73,
+  swordHitSoundEffect_Poor: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36,
     type: 3}
-  swordHitSoundEffect_Good: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893,
+  swordHitSoundEffect_Good: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73,
+    type: 3}
+  swordHitSoundEffect_Excellent: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893,
     type: 3}
   swordObject: {fileID: 1000012261516340}
   windObject: {fileID: 8290504828603673350}
   swordPeekObject: {fileID: 3079869875614159072}
+  maxBackVelocity: 5
+  coldDownPerSwordInSecond: 0.05
+  remainingColdDownPerSwordInSecond: 0
   swordPeekVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &1463722293448989058
 Rigidbody:

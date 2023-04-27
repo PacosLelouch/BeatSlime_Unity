@@ -1,4 +1,4 @@
 RhythmosEditor - Configuration
 
-LastRhythmosDatabaseFile: none
-MetronomeSound: none
+LastRhythmosDatabaseFile: Assets/RhythmosDatabase.xml
+MetronomeSound: Assets/Musics/2022-02-01_-_Derp_-_www.FesliyanStudios.com.mp3

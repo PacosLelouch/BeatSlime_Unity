@@ -35,14 +35,23 @@ public class BeatSlimeGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsPlaying && beatController.IsAudioEnd)
+        {
+            GameOver(true);
+        }
     }
 
-
+    public bool IsPlaying
+    {
+        get
+        {
+            return gameState == GameState.Playing;
+        }
+    }
 
     public bool StartGame()
     {
-        if (gameState != GameState.Playing)
+        if (!IsPlaying)
         {
             gameState = GameState.Playing;
             beatController.StartPlaying();
@@ -54,5 +63,6 @@ public class BeatSlimeGameManager : MonoBehaviour
     {
         gameState = isSongEnd ? GameState.GameOver_Win : GameState.GameOver_Lose;
         beatController.StopPlaying();
+        // TODO: Record...
     }
 }
