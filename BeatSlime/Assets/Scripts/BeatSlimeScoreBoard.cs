@@ -44,6 +44,9 @@ public class BeatSlimeScoreBoard : MonoBehaviour
                 case GameState.GameOver_Win:
                     textGameState.text = "WIN";
                     break;
+                case GameState.None:
+                    textGameState.text = "HOLD SWORD\nTO START";
+                    break;
                 default:
                     textGameState.text = "";
                     break;

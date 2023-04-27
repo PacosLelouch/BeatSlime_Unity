@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum SlimeEnemyQualityDebugLevel
+{
+    NoDebug,
+    GE_Good,
+    All
+}
+
 public class SlimeEnemy : MonoBehaviour
 {
+    public SlimeEnemyQualityDebugLevel qualityDebugLevel = SlimeEnemyQualityDebugLevel.GE_Good;
     public Text debugQualityText;
 
     private GameObject playerObject;
@@ -24,9 +32,17 @@ public class SlimeEnemy : MonoBehaviour
         // TODO: Visualize quality...
         if (debugQualityText != null)
         {
-            debugQualityText.text = quality.ToString();
-            float ratio = (float)quality / (float)BeatQuality.Excellent;
-            debugQualityText.color = Color.HSVToRGB(1.0f / 3.0f * ratio, 1.0f, 1.0f);
+            if (qualityDebugLevel == SlimeEnemyQualityDebugLevel.All ||
+                qualityDebugLevel == SlimeEnemyQualityDebugLevel.GE_Good && quality >= BeatQuality.Good)
+            {
+                debugQualityText.text = quality.ToString();
+                float ratio = (float)quality / (float)BeatQuality.Excellent;
+                debugQualityText.color = Color.HSVToRGB(1.0f / 3.0f * ratio, 1.0f, 1.0f);
+            }
+            else
+            {
+                debugQualityText.text = "";
+            }
         }
     }
 

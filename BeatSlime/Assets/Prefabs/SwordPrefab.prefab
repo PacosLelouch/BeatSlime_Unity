@@ -101,7 +101,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
@@ -337,6 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05541957dfaa7d40b74e45fdf173b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordHitSoundEffect_Poor: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73,
+    type: 3}
+  swordHitSoundEffect_Good: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893,
+    type: 3}
   swordObject: {fileID: 1000012261516340}
   windObject: {fileID: 8290504828603673350}
   swordPeekObject: {fileID: 3079869875614159072}
