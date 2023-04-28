@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7704967804909875182}
-  - component: {fileID: 422940009576266401}
   - component: {fileID: 2258755916553894513}
+  - component: {fileID: 3103324524982270427}
   m_Layer: 0
-  m_Name: BeatController
+  m_Name: RhythmosBeatController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,24 +31,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &422940009576266401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271365594225955613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fdbae236da1e5f48bb967e5e9e2d58b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bpm: 87.5
-  slimeObject: {fileID: 0}
-  jumpHeight: 3
-  timeOffset: 0
 --- !u!82 &2258755916553894513
 AudioSource:
   m_ObjectHideFlags: 0
@@ -145,3 +129,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3103324524982270427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271365594225955613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312fc00824047064198e89dcb13fddeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 87.5
+  slimeObject: {fileID: 0}
+  jumpHeight: 3
+  timeOffset: 0
+  enableRhythmosDatabase: 1
+  rhythmosFile: {fileID: 4900000, guid: 7660ad7a0df871643b4ab25383667a0f, type: 3}
+  rhythmosName: BeatSlime

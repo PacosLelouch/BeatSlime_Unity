@@ -27,14 +27,14 @@ public class BeatController : MonoBehaviour
     public float jumpHeight;
     public float timeOffset;
 
-    private AudioSource audioSource;
-    private float beatDuration;
-    private float lastBeatTime;
-    private float nextBeatTime;
+    protected AudioSource audioSource;
+    protected float beatDuration;
+    protected float lastBeatTime;
+    protected float nextBeatTime;
 
-    private GameObject playerObject;
+    protected GameObject playerObject;
 
-    protected void Start()
+    protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         beatDuration = 60f / bpm;
@@ -43,7 +43,7 @@ public class BeatController : MonoBehaviour
         playerObject = BeatSlimePlayer.GetPlayerInScene().gameObject;
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (audioSource.isPlaying)
         {
@@ -115,12 +115,12 @@ public class BeatController : MonoBehaviour
         }
     }
 
-    public void StopPlaying()
+    public virtual void StopPlaying()
     {
         audioSource.time = 0.0f;
         audioSource.Stop();
     }
-    public void StartPlaying()
+    public virtual void StartPlaying()
     {
         lastBeatTime = 0f;
         nextBeatTime = beatDuration;
