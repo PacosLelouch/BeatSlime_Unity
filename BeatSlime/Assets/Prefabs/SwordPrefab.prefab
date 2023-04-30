@@ -337,11 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05541957dfaa7d40b74e45fdf173b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordHitSoundEffect_Poor: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36,
+  swordHitSoundEffect_Poor: {fileID: 8300000, guid: a5f9475ac39189e49a885846b847cc81,
     type: 3}
-  swordHitSoundEffect_Good: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73,
+  swordHitSoundEffect_Good: {fileID: 8300000, guid: b0705a57664513f48b932dea86ba0be8,
     type: 3}
-  swordHitSoundEffect_Excellent: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893,
+  swordHitSoundEffect_Excellent: {fileID: 8300000, guid: 74357ff71432bfa4bbd4f7b3a218acd9,
     type: 3}
   swordObject: {fileID: 1000012261516340}
   windObject: {fileID: 8290504828603673350}
