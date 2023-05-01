@@ -14,6 +14,7 @@ public class SlimeEnemy : MonoBehaviour
 {
     public SlimeEnemyQualityDebugLevel qualityDebugLevel = SlimeEnemyQualityDebugLevel.GE_Good;
     public Text debugQualityText;
+    public GameObject slimeMesh;
 
     private GameObject playerObject;
 

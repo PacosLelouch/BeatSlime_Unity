@@ -44,6 +44,15 @@ public class RhythmosBeatController : BeatController
         base.Update();
     }
 
+    public override void ApplyBeat()
+    {
+        Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+        int noteType = note.layoutIndex;
+        // TODO
+        slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Color", gameManager.noteTypeToColor[noteType]);
+        base.ApplyBeat();
+    }
+
     protected override void AccumulateNextBeatTime()
     {
         if (enableRhythmosDatabase && rhythmosPlayer != null && rhythmosPlayer.rhythm.NoteList() != null)
@@ -73,6 +82,8 @@ public class RhythmosBeatController : BeatController
             if (rhythmosPlayer != null && rhythmosPlayer.isPlaying)
             {
                 rhythmosPlayer.Stop();
+                audioSource.time = 0.0f;
+                audioSource.Stop();
             }
         }
         else

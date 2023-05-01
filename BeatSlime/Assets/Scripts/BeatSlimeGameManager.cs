@@ -12,6 +12,12 @@ public enum GameState
 
 public class BeatSlimeGameManager : MonoBehaviour
 {
+    public Color[] noteTypeToColor = new Color[]
+    {
+        Color.HSVToRGB(200.0f / 360.0f, 50.0f / 100.0f, 90.0f / 100.0f),
+        Color.HSVToRGB(100.0f / 360.0f, 50.0f / 100.0f, 90.0f / 100.0f),
+    };
+
     static public BeatSlimeGameManager GetGameManagerInScene(string name = "BeatSlimeGameManager")
     {
         GameObject go = GameObject.Find(name);

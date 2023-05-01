@@ -2,8 +2,13 @@
 <RhythmosDatabase>
   <NoteList>
     <NoteEntry>
-      <name>Beat</name>
+      <name>Beat1</name>
       <color>RGBA(0.386, 0.533, 0.548, 1.000)</color>
+      <audioclip>0</audioclip>
+    </NoteEntry>
+    <NoteEntry>
+      <name>Beat2</name>
+      <color>RGBA(0.548, 0.386, 0.533, 1.000)</color>
       <audioclip>0</audioclip>
     </NoteEntry>
   </NoteList>
@@ -52,7 +57,7 @@
         <Note>
           <rest>False</rest>
           <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
+          <layoutIndex>1</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -83,7 +88,7 @@
         <Note>
           <rest>False</rest>
           <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
+          <layoutIndex>1</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -103,7 +108,7 @@
         <Note>
           <rest>False</rest>
           <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
+          <layoutIndex>1</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>

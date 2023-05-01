@@ -25,10 +25,11 @@ public class BeatSlimeSword : MonoBehaviour
     public GameObject swordObject = null;
     public GameObject windObject = null;
     public GameObject swordPeekObject = null;
+    public int noteType = 0;
 
     public float hitSoundVolume = 0.45f;
     public float maxBackVelocity = 5.0f;
-    public float coldDownPerSwordInSecond = 0.05f;
+    public float coldDownPerSwordInSecond = 0.1f;
 
     public BeatSlimeSwordData data = new BeatSlimeSwordData();
 
@@ -63,6 +64,7 @@ public class BeatSlimeSword : MonoBehaviour
     {
         beatController = BeatController.GetBeatControllerInScene();
         gameManager = BeatSlimeGameManager.GetGameManagerInScene();
+        swordObject.GetComponent<MeshRenderer>().material.SetColor("_Color", gameManager.noteTypeToColor[noteType]);
     }
 
     // Update is called once per frame
@@ -110,7 +112,7 @@ public class BeatSlimeSword : MonoBehaviour
     {
         get
         {
-            return swordPeekVelocity.magnitude > 1.0f;
+            return swordPeekVelocity.magnitude > 2.0f;
         }
     }
     #endregion
