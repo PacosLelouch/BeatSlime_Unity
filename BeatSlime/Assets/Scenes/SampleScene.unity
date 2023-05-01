@@ -1084,7 +1084,7 @@ PrefabInstance:
     - target: {fileID: 3103324524982270427, guid: 49e081442c8e6c043a57de44bb8f0b9c,
         type: 3}
       propertyPath: enableRhythmosDatabase
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7704967804909875182, guid: 49e081442c8e6c043a57de44bb8f0b9c,
         type: 3}

@@ -29,7 +29,10 @@ public class BeatController : MonoBehaviour
 
     protected AudioSource audioSource;
     protected float beatDuration;
+
+    [SerializeField]
     protected float lastBeatTime;
+    [SerializeField]
     protected float nextBeatTime;
 
     protected GameObject playerObject;
@@ -52,10 +55,15 @@ public class BeatController : MonoBehaviour
             if (time >= nextBeatTime)
             {
                 ApplyBeat();
-                lastBeatTime = nextBeatTime;
-                nextBeatTime += beatDuration;
+                AccumulateNextBeatTime();
             }
         }
+    }
+
+    protected virtual void AccumulateNextBeatTime()
+    {
+        lastBeatTime = nextBeatTime;
+        nextBeatTime += beatDuration;
     }
 
     public void ApplyBeat()

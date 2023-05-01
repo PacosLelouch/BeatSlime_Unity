@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using RhythmosEngine;
+using System;
 
 public class RhythmosBeatController : BeatController
 {
@@ -21,6 +22,8 @@ public class RhythmosBeatController : BeatController
     public string rhythmosName = "BeatSlime";
     protected RhythmosDatabase rhythmosDatabase;
     protected RhythmosPlayer rhythmosPlayer;
+
+    protected int nextNoteIndex = -1;
     protected float accumulateBeatAndRestTime = 0.0f;
 
     protected void Awake()
@@ -39,12 +42,27 @@ public class RhythmosBeatController : BeatController
     protected override void Update()
     {
         base.Update();
-        if (audioSource.isPlaying && enableRhythmosDatabase)
+    }
+
+    protected override void AccumulateNextBeatTime()
+    {
+        if (enableRhythmosDatabase && rhythmosPlayer != null && rhythmosPlayer.rhythm.NoteList() != null)
         {
-            Note note = rhythmosPlayer.GetCurrentNote();
-            // TODO
-            //rhythmosPlayer.
-            nextBeatTime = note.isRest ? note.duration : float.MaxValue;
+            lastBeatTime = nextBeatTime;
+            // Warning: What if all rest?
+
+            Note note = new Note();
+            do
+            {
+                note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+                float noteDuration = 60f / rhythmosPlayer.rhythm.BPM * note.duration;
+                nextBeatTime += noteDuration;
+                nextNoteIndex = (nextNoteIndex + 1) % rhythmosPlayer.rhythm.NoteCount;
+            } while (note.isRest);
+        }
+        else
+        {
+            base.AccumulateNextBeatTime();
         }
     }
 
@@ -71,13 +89,31 @@ public class RhythmosBeatController : BeatController
             {
                 rhythmosPlayer.Stop();
             }
-            rhythmosPlayer = rhythmosDatabase.PlayRhythm(rhythmosName, volume: 0);
-            Note note = rhythmosPlayer.GetCurrentNote();
+            rhythmosPlayer = rhythmosDatabase.PlayRhythm(rhythmosName, volume: 0, false, false);
 
-            lastBeatTime = 0.0f;
-            accumulateBeatAndRestTime = note.duration;
-            nextBeatTime = note.isRest ? note.duration : float.MaxValue;
-            playerObject.GetComponent<BeatSlimePlayer>().data.Reset();
+            bool ifAllRest = true;
+            for (int i = 0; i < rhythmosPlayer.rhythm.NoteCount; ++i)
+            {
+                if (!rhythmosPlayer.rhythm.GetNoteAt(i).isRest)
+                {
+                    ifAllRest = false;
+                    break;
+                }
+            }
+
+            if (!ifAllRest)
+            {
+                nextNoteIndex = 0;
+
+                nextBeatTime = 0.0f;
+                AccumulateNextBeatTime();
+                audioSource.Play();
+                playerObject.GetComponent<BeatSlimePlayer>().data.Reset();
+            }
+            else
+            {
+                Debug.Log("Error: Rhythm note all rest!");
+            }
         }
         else
         {
