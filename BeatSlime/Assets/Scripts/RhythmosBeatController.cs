@@ -104,6 +104,7 @@ public class RhythmosBeatController : BeatController
             if (!ifAllRest)
             {
                 nextNoteIndex = 0;
+                bpm = rhythmosPlayer.rhythm.BPM;
 
                 nextBeatTime = 0.0f;
                 AccumulateNextBeatTime();

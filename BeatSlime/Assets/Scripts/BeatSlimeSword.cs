@@ -26,6 +26,7 @@ public class BeatSlimeSword : MonoBehaviour
     public GameObject windObject = null;
     public GameObject swordPeekObject = null;
 
+    public float hitSoundVolume = 0.45f;
     public float maxBackVelocity = 5.0f;
     public float coldDownPerSwordInSecond = 0.05f;
 
@@ -218,21 +219,22 @@ public class BeatSlimeSword : MonoBehaviour
                             owningPlayer.RestoreLife();
                             if (swordHitSoundEffect_Excellent != null)
                             {
-                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Excellent, swordObject.transform.position, 0.25f);
+                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Excellent, swordObject.transform.position, hitSoundVolume);
                             }
                         }
                         else
                         {
                             if (swordHitSoundEffect_Good != null)
                             {
-                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Good, swordObject.transform.position, 0.25f);
+                                AudioSource.PlayClipAtPoint(swordHitSoundEffect_Good, swordObject.transform.position, hitSoundVolume);
                             }
                         }
 
                         //haptic feedback when the player has a good hit
                         if (playerHand != null && playerHand.hapticAction.active)
                         {
-                            playerHand.TriggerHapticPulse((ushort)0.5);
+                            float duration = 60f / beatController.bpm * 0.5f;
+                            playerHand.TriggerHapticPulse(duration, 1.0f/ duration, 1.0f);
                         }
                     }
                     else
@@ -243,7 +245,7 @@ public class BeatSlimeSword : MonoBehaviour
                         }
                         if (swordHitSoundEffect_Poor != null)
                         {
-                            AudioSource.PlayClipAtPoint(swordHitSoundEffect_Poor, swordObject.transform.position, 0.25f);
+                            AudioSource.PlayClipAtPoint(swordHitSoundEffect_Poor, swordObject.transform.position, hitSoundVolume);
                         }
                     }
                 }
