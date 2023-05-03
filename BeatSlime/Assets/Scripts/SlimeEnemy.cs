@@ -15,6 +15,7 @@ public class SlimeEnemy : MonoBehaviour
     public SlimeEnemyQualityDebugLevel qualityDebugLevel = SlimeEnemyQualityDebugLevel.GE_Good;
     public Text debugQualityText;
     public GameObject slimeMesh;
+    public Animator slimeAnimator;
 
     private GameObject playerObject;
 
@@ -22,6 +23,7 @@ public class SlimeEnemy : MonoBehaviour
     void Start()
     {
         playerObject = BeatSlimePlayer.GetPlayerInScene().gameObject;
+        slimeAnimator = GetComponent<Animator>();
     }
 
     public void AttackAction()
@@ -64,6 +66,7 @@ public class SlimeEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Debug.Log("Slime -> Sword");
+            slimeAnimator.SetTrigger("GetHit");
         }
         else
         {

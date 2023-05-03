@@ -7,20 +7,30 @@ namespace Valve.VR.InteractionSystem.Sample
 {
     public class TargetHitEffect : MonoBehaviour
     {
+        // public Animator slimeAnim;
+
         public Collider targetCollider;
 
         public GameObject spawnObjectOnCollision;
+
+        // public GameObject slimeObject;
 
         public bool colorSpawnedObject = true;
 
         public bool destroyOnTargetCollision = true;
 
+        // private void Start()
+        // {
+        //     slimeAnim = slimeObject.GetComponent<Animator>();
+        // }
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider == targetCollider)
             {
                 ContactPoint contact = collision.contacts[0];
                 RaycastHit hit;
+
+                // slimeAnim.SetTrigger("GetHit");
 
                 float backTrackLength = 1f;
                 Ray ray = new Ray(contact.point - (-contact.normal * backTrackLength), -contact.normal);

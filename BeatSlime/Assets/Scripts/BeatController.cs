@@ -22,6 +22,8 @@ public class BeatController : MonoBehaviour
         return null;
     }
 
+    public Animator slimeAnim;
+
     public float bpm;
     public GameObject slimeObject;
     public float jumpHeight;
@@ -40,6 +42,8 @@ public class BeatController : MonoBehaviour
 
     protected virtual void Start()
     {
+
+        slimeAnim = slimeObject.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         beatDuration = 60f / bpm;
         lastBeatTime = 0f;
@@ -139,6 +143,7 @@ public class BeatController : MonoBehaviour
     {
         audioSource.time = 0.0f;
         audioSource.Stop();
+        // slimeAnim.SetTrigger("WinGame");
     }
     public virtual void StartPlaying()
     {
@@ -147,5 +152,6 @@ public class BeatController : MonoBehaviour
         audioSource.time = 0.0f;
         audioSource.Play();
         playerObject.GetComponent<BeatSlimePlayer>().data.Reset();
+        // slimeAnim.SetTrigger("StartGame");
     }
 }

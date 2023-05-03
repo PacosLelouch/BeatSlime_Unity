@@ -1540,6 +1540,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 792b98e5667012640b0d418f0540ce82, type: 2}
+    - target: {fileID: 114000011129258500, guid: b02a5dde66ac2174395a8b5fb16dcff1,
+        type: 3}
+      propertyPath: slimeObject
+      value: 
+      objectReference: {fileID: 4024409184811186918}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1556,6 +1561,7 @@ GameObject:
   - component: {fileID: 1460994565}
   - component: {fileID: 1460994564}
   - component: {fileID: 1460994563}
+  - component: {fileID: 1460994566}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1636,6 +1642,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1460994566
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460994562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 472b233b2cdfac940a8b8f50e18c1b95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1535865224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2059,6 +2086,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bc3a4c1b42252214799ea2c1f85ace73, type: 2}
+    - target: {fileID: 114000011129258500, guid: b02a5dde66ac2174395a8b5fb16dcff1,
+        type: 3}
+      propertyPath: slimeObject
+      value: 
+      objectReference: {fileID: 4024409184811186918}
     - target: {fileID: 3567430497923395620, guid: b02a5dde66ac2174395a8b5fb16dcff1,
         type: 3}
       propertyPath: noteType
@@ -2670,6 +2702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851068790784513068, guid: 12cb1e125a4dc1a4ca08c275864cdff7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
