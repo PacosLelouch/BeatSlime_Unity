@@ -35,7 +35,7 @@ public class SlimeEnemy : MonoBehaviour
     public void GetHurt(BeatQuality quality)
     {
         // Add animations in this function. 
-        //slimeAnimator.SetTrigger("GetHit");
+        slimeAnimator.SetTrigger("GetHit");
     }
 
     // Update is called once per frame
