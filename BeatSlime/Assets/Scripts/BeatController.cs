@@ -68,6 +68,11 @@ public class BeatController : MonoBehaviour
         nextBeatTime += beatDuration;
     }
 
+    public virtual bool MatchNoteType(int inNoteType)
+    {
+        return true;
+    }
+
     public virtual void ApplyBeat()
     {
         Rigidbody slimeRigidBody = slimeObject.GetComponent<Rigidbody>();
@@ -89,6 +94,8 @@ public class BeatController : MonoBehaviour
         {
             slimeRigidBody.AddForce(playerDirection2D * 1.5f, ForceMode.VelocityChange);
         }
+        SlimeEnemy slimeEnemy = slimeObject.GetComponent<SlimeEnemy>();
+        slimeEnemy.AttackAction();
     }
 
     public float AudioTime

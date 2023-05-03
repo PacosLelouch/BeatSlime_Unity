@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -12,6 +13,23 @@ public class BeatSlimeSwordData
         { BeatQuality.Good, 50.0f },
         { BeatQuality.Excellent, 100.0f }
     };
+
+    public float GetScoreToAdd(float rawScore, int combo)
+    {
+        if (combo < 10)
+        {
+            return rawScore;
+        }
+        else if (combo < 20)
+        {
+            return rawScore > 0.0f ? 1.2f * rawScore : rawScore;
+        }
+        else if (combo < 50)
+        {
+            return rawScore > 0.0f ? 1.5f * rawScore : rawScore;
+        }
+        return rawScore > 0.0f ? 2.0f * rawScore : rawScore;
+    }
 }
 
 //-------------------------------------------------------------------------
@@ -64,7 +82,8 @@ public class BeatSlimeSword : MonoBehaviour
     {
         beatController = BeatController.GetBeatControllerInScene();
         gameManager = BeatSlimeGameManager.GetGameManagerInScene();
-        swordObject.GetComponent<MeshRenderer>().material.SetColor("_Color", gameManager.noteTypeToColor[noteType]);
+        swordObject.GetComponent<MeshRenderer>().material.color = gameManager.noteTypeToColor[noteType];
+        //swordObject.GetComponent<MeshRenderer>().material.SetColor("_Color", gameManager.noteTypeToColor[noteType]);
     }
 
     // Update is called once per frame
@@ -187,6 +206,7 @@ public class BeatSlimeSword : MonoBehaviour
                 playerDirection2D.y = 0.0f;
                 playerDirection2D.Normalize();
 
+                // Slime get hit and bounce. 
                 //if (Vector3.Dot(swordPeekVelocity2D, playerDirection2D) < 0.0f)
                 {
                     Vector3 backVelocity = swordPeekVelocity2D * extraRatio;
@@ -203,9 +223,22 @@ public class BeatSlimeSword : MonoBehaviour
                     float hitTime = beatController.AudioTime;
                     BeatQuality quality = beatController.GetHitQuality(hitTime);
 
+                    // Check note type.
+                    bool matchNoteType = beatController.MatchNoteType(noteType);
+                    if (!matchNoteType)
+                    {
+                        quality = BeatQuality.Miss;
+                    
+                    }
+
+                    SlimeEnemy slimeEnemy = other.GetComponent<SlimeEnemy>();
+                    slimeEnemy.GetHurt(quality);
+
+                    // Add score.
                     if (gameManager.IsPlaying)
                     {
-                        float addScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                        float addRawScore = data.scoreDict.GetValueOrDefault(quality, 0.0f);
+                        float addScore = data.GetScoreToAdd(addRawScore, owningPlayer.data.combo);
                         owningPlayer.data.score += addScore;
                     }
 

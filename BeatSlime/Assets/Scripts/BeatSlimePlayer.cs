@@ -58,7 +58,7 @@ public class BeatSlimePlayer : MonoBehaviour
         return false;
     }
 
-    public bool GetHurt(float value = 5.0f)
+    public bool GetHurt(float value = 10.0f)
     {
         if (gameManager.IsPlaying)
         {

@@ -44,12 +44,22 @@ public class RhythmosBeatController : BeatController
         base.Update();
     }
 
+    public int CurrentNoteIndex
+    {
+        get
+        {
+            return nextNoteIndex - 1;
+        }
+    }
+
     public override void ApplyBeat()
     {
-        Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+        Note note = rhythmosPlayer.rhythm.GetNoteAt(CurrentNoteIndex % rhythmosPlayer.rhythm.NoteCount);
         int noteType = note.layoutIndex;
-        // TODO
-        slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().sharedMaterials[0].SetColor("_Color", gameManager.noteTypeToColor[noteType]);
+        
+        //Color oldColor = slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().material.color;
+        slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().material.color = gameManager.noteTypeToColor[noteType];
+        //Color newColor = slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().material.color;
         base.ApplyBeat();
     }
 
@@ -73,6 +83,13 @@ public class RhythmosBeatController : BeatController
         {
             base.AccumulateNextBeatTime();
         }
+    }
+
+    public override bool MatchNoteType(int inNoteType)
+    {
+        Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+        int noteType = note.layoutIndex;
+        return inNoteType == noteType;
     }
 
     public override void StopPlaying()

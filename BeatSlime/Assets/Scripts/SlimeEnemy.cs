@@ -24,6 +24,16 @@ public class SlimeEnemy : MonoBehaviour
         playerObject = BeatSlimePlayer.GetPlayerInScene().gameObject;
     }
 
+    public void AttackAction()
+    {
+        // TODO: Add animations in this function.
+    }
+
+    public void GetHurt(BeatQuality quality)
+    {
+        // TODO: Add animations in this function. 
+    }
+
     // Update is called once per frame
     void Update()
     {
