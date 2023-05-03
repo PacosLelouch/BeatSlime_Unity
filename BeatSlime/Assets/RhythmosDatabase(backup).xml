@@ -15,7 +15,7 @@
   <RhythmList>
     <RhythmEntry>
       <name>BeatSlime</name>
-      <bpm>87.5</bpm>
+      <bpm>87.4</bpm>
       <RhythmSequence>
 		<!-- Before start -->
         <Note>
@@ -40,11 +40,6 @@
         </Note>
 		<!-- Start 1 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -66,6 +61,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -81,11 +81,6 @@
         </Note>
 		<!-- Start 2 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -109,6 +104,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -122,11 +122,6 @@
         </Note>
 		<!-- Start 3 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -148,6 +143,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -163,11 +163,6 @@
         </Note>
 		<!-- Start 4 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -191,6 +186,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -204,11 +204,6 @@
         </Note>
 		<!-- Start 5 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -230,6 +225,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -245,11 +245,6 @@
         </Note>
 		<!-- Start 6 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -273,6 +268,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -286,11 +286,6 @@
         </Note>
 		<!-- Start 7 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -312,6 +307,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -327,11 +327,6 @@
         </Note>
 		<!-- Start 8 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -355,6 +350,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -449,11 +449,6 @@
         </Note>
 		<!-- Start 1 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -475,6 +470,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -490,11 +490,6 @@
         </Note>
 		<!-- Start 2 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -518,6 +513,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -531,11 +531,6 @@
         </Note>
 		<!-- Start 3 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -557,6 +552,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -572,11 +572,6 @@
         </Note>
 		<!-- Start 4 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -600,6 +595,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -613,11 +613,6 @@
         </Note>
 		<!-- Start 5 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -639,6 +634,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -654,11 +654,6 @@
         </Note>
 		<!-- Start 6 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -682,6 +677,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -695,11 +695,6 @@
         </Note>
 		<!-- Start 7 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -721,6 +716,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -736,11 +736,6 @@
         </Note>
 		<!-- Start 8 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -764,6 +759,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -858,11 +858,6 @@
         </Note>
 		<!-- Start 1 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -884,6 +879,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -899,11 +899,6 @@
         </Note>
 		<!-- Start 2 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -927,6 +922,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -940,11 +940,6 @@
         </Note>
 		<!-- Start 3 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -966,6 +961,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -981,11 +981,6 @@
         </Note>
 		<!-- Start 4 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1009,6 +1004,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1022,11 +1022,6 @@
         </Note>
 		<!-- Start 5 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1048,6 +1043,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1063,11 +1063,6 @@
         </Note>
 		<!-- Start 6 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1091,6 +1086,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1104,11 +1104,6 @@
         </Note>
 		<!-- Start 7 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1130,6 +1125,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1145,11 +1145,6 @@
         </Note>
 		<!-- Start 8 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1173,6 +1168,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1267,11 +1267,6 @@
         </Note>
 		<!-- Start 1 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1293,6 +1288,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1308,11 +1308,6 @@
         </Note>
 		<!-- Start 2 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1336,6 +1331,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1349,11 +1349,6 @@
         </Note>
 		<!-- Start 3 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1375,6 +1370,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1390,11 +1390,6 @@
         </Note>
 		<!-- Start 4 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1418,6 +1413,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1431,11 +1431,6 @@
         </Note>
 		<!-- Start 5 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1457,6 +1452,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1472,11 +1472,6 @@
         </Note>
 		<!-- Start 6 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1500,6 +1495,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1513,11 +1513,6 @@
         </Note>
 		<!-- Start 7 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1539,6 +1534,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1554,11 +1554,6 @@
         </Note>
 		<!-- Start 8 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1582,6 +1577,11 @@
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
         </Note>
         <Note>
           <rest>True</rest>
@@ -1676,11 +1676,6 @@
         </Note>
 		<!-- Start 1 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
@@ -1702,6 +1697,11 @@
         </Note>
         <Note>
           <rest>False</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
@@ -1717,11 +1717,6 @@
         </Note>
 		<!-- Start 2 -->
         <Note>
-          <rest>True</rest>
-          <duration>0.5</duration>
-          <layoutIndex>0</layoutIndex>
-        </Note>
-        <Note>
           <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>1</layoutIndex>
@@ -1753,12 +1748,57 @@
         </Note>
         <Note>
           <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>False</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>
 	    <!-- End -->
         <Note>
-          <rest>False</rest>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
+          <duration>0.5</duration>
+          <layoutIndex>0</layoutIndex>
+        </Note>
+        <Note>
+          <rest>True</rest>
           <duration>0.5</duration>
           <layoutIndex>0</layoutIndex>
         </Note>

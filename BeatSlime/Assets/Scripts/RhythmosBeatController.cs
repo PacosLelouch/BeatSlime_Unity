@@ -44,17 +44,20 @@ public class RhythmosBeatController : BeatController
         base.Update();
     }
 
-    public int CurrentNoteIndex
+    public int currentNoteIndex
     {
-        get
-        {
-            return nextNoteIndex - 1;
-        }
+        get;
+        protected set;
+    }
+    public int lastNoteIndex
+    {
+        get;
+        protected set;
     }
 
     public override void ApplyBeat()
     {
-        Note note = rhythmosPlayer.rhythm.GetNoteAt(CurrentNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+        Note note = rhythmosPlayer.rhythm.GetNoteAt(currentNoteIndex % rhythmosPlayer.rhythm.NoteCount);
         int noteType = note.layoutIndex;
         
         //Color oldColor = slimeObject.GetComponent<SlimeEnemy>().slimeMesh.GetComponent<SkinnedMeshRenderer>().material.color;
@@ -71,11 +74,13 @@ public class RhythmosBeatController : BeatController
             // Warning: What if all rest?
 
             Note note = new Note();
+            lastNoteIndex = currentNoteIndex;
             do
             {
                 note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
                 float noteDuration = 60f / rhythmosPlayer.rhythm.BPM * note.duration;
                 nextBeatTime += noteDuration;
+                currentNoteIndex = nextNoteIndex;
                 nextNoteIndex = (nextNoteIndex + 1) % rhythmosPlayer.rhythm.NoteCount;
             } while (note.isRest);
         }
@@ -89,7 +94,7 @@ public class RhythmosBeatController : BeatController
     {
         if (enableRhythmosDatabase)
         {
-            Note note = rhythmosPlayer.rhythm.GetNoteAt(CurrentNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+            Note note = rhythmosPlayer.rhythm.GetNoteAt(lastNoteIndex % rhythmosPlayer.rhythm.NoteCount);
             int noteType = note.layoutIndex;
             return inNoteType == noteType;
         }
@@ -139,6 +144,7 @@ public class RhythmosBeatController : BeatController
             if (!ifAllRest)
             {
                 nextNoteIndex = 0;
+                currentNoteIndex = 0;
                 bpm = rhythmosPlayer.rhythm.BPM;
 
                 nextBeatTime = 0.0f;

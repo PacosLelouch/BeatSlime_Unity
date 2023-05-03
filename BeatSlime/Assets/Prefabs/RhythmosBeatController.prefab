@@ -141,10 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312fc00824047064198e89dcb13fddeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 87.5
+  bpm: 87.4
   slimeObject: {fileID: 0}
   jumpHeight: 3
   timeOffset: 0
+  lastBeatTime: 0
+  nextBeatTime: 0
   enableRhythmosDatabase: 1
   rhythmosFile: {fileID: 4900000, guid: 7660ad7a0df871643b4ab25383667a0f, type: 3}
   rhythmosName: BeatSlime
