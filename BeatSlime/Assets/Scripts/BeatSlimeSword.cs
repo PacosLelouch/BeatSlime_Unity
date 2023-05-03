@@ -82,6 +82,7 @@ public class BeatSlimeSword : MonoBehaviour
     {
         beatController = BeatController.GetBeatControllerInScene();
         gameManager = BeatSlimeGameManager.GetGameManagerInScene();
+
         swordObject.GetComponent<MeshRenderer>().material.color = gameManager.noteTypeToColor[noteType];
         //swordObject.GetComponent<MeshRenderer>().material.SetColor("_Color", gameManager.noteTypeToColor[noteType]);
     }

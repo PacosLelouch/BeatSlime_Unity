@@ -87,9 +87,16 @@ public class RhythmosBeatController : BeatController
 
     public override bool MatchNoteType(int inNoteType)
     {
-        Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
-        int noteType = note.layoutIndex;
-        return inNoteType == noteType;
+        if (enableRhythmosDatabase)
+        {
+            Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+            int noteType = note.layoutIndex;
+            return inNoteType == noteType;
+        }
+        else
+        {
+            return base.MatchNoteType(inNoteType);
+        }
     }
 
     public override void StopPlaying()
