@@ -28,12 +28,14 @@ public class SlimeEnemy : MonoBehaviour
 
     public void AttackAction()
     {
-        // TODO: Add animations in this function.
+        // Add animations in this function.
+        //slimeAnimator.SetTrigger("Attack");
     }
 
     public void GetHurt(BeatQuality quality)
     {
-        // TODO: Add animations in this function. 
+        // Add animations in this function. 
+        //slimeAnimator.SetTrigger("GetHit");
     }
 
     // Update is called once per frame
@@ -66,7 +68,6 @@ public class SlimeEnemy : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             Debug.Log("Slime -> Sword");
-            slimeAnimator.SetTrigger("GetHit");
         }
         else
         {
