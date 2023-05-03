@@ -89,7 +89,7 @@ public class RhythmosBeatController : BeatController
     {
         if (enableRhythmosDatabase)
         {
-            Note note = rhythmosPlayer.rhythm.GetNoteAt(nextNoteIndex % rhythmosPlayer.rhythm.NoteCount);
+            Note note = rhythmosPlayer.rhythm.GetNoteAt(CurrentNoteIndex % rhythmosPlayer.rhythm.NoteCount);
             int noteType = note.layoutIndex;
             return inNoteType == noteType;
         }
