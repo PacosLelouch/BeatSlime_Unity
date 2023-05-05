@@ -90,6 +90,10 @@ public class BeatSlimeSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (beatController.bpm > 0.0f)
+        {
+            coldDownPerSwordInSecond = 60.0f / beatController.bpm * 0.25f;
+        }
         if (remainingColdDownPerSwordInSecond > 0.0f)
         {
             remainingColdDownPerSwordInSecond -= Time.deltaTime;
@@ -233,7 +237,6 @@ public class BeatSlimeSword : MonoBehaviour
                     }
 
                     SlimeEnemy slimeEnemy = other.GetComponent<SlimeEnemy>();
-                    slimeEnemy.GetHurt(quality);
 
                     // Add score.
                     if (gameManager.IsPlaying)
@@ -247,6 +250,7 @@ public class BeatSlimeSword : MonoBehaviour
                     {
                         if (gameManager.IsPlaying)
                         {
+                            slimeEnemy.GetHurt(quality);
                             ++owningPlayer.data.combo;
                         }
 
