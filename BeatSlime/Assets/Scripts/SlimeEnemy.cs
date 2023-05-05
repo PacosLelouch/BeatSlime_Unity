@@ -29,7 +29,7 @@ public class SlimeEnemy : MonoBehaviour
     public void AttackAction()
     {
         // Add animations in this function.
-        //slimeAnimator.SetTrigger("Attack");
+        slimeAnimator.SetTrigger("Attack");
     }
 
     public void GetHurt(BeatQuality quality)
