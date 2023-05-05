@@ -99,7 +99,8 @@ public class BeatController : MonoBehaviour
             slimeRigidBody.AddForce(playerDirection2D * 1.5f, ForceMode.VelocityChange);
         }
         SlimeEnemy slimeEnemy = slimeObject.GetComponent<SlimeEnemy>();
-        slimeEnemy.AttackAction();
+        slimeEnemy.Invoke("AttackAction", beatDuration * 0.5f);
+        //slimeEnemy.AttackAction();
     }
 
     public float AudioTime
